@@ -1,7 +1,7 @@
 # WordCloud-Generator
 Website to allow users to create customizable word clouds.
 
-# Requirements
+## Requirements
 * Python3
 * Flask
 * Pandas
@@ -9,7 +9,7 @@ Website to allow users to create customizable word clouds.
 * WordCloud
 * Matplotlib
 
-# Installation
+## Installation
 First install all the required libraries.<br>
 `pip install -r requirements.txt`
 
