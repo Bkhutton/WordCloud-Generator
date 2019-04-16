@@ -1,32 +1,34 @@
-import numpy as np
-import pandas as pd
-from wordcloud import WordCloud, STOPWORDS, ImageColorGenerator
-import matplotlib as plt
-
-from flask import Flask, render_template
+from flask import Flask, Response, render_template
 import logging as log
 
 app = Flask(__name__)
 
+def standard_page(html_file, page_title):
+    content = ''
 
-def make_wordcloud(text=''):
-    wordcloud = WordCloud().generate(text)
-    wordcloud.to_file('imgs/test.png')
-    log.info('Created WordCloud.')
-    return 'Creating WordCloud'
+    content = content + render_template('header.html', page_title=page_title)
+
+    with open(html_file) as index:
+        content = content + index.read()
+
+    content = content + render_template('footer.html')
+
+    return content
 
 @app.route('/')
-def main():
-    make_wordcloud()
-    return render_template('index.html')
+def index():
+    content = standard_page('index.html', 'Home')
+    return Response(content, mimetype='text/html')
 
 @app.route('/generate.html')
 def generate():
-    return render_template('generate.html')
+    content = standard_page('generate.html', 'Generate')
+    return Response(content, mimetype='text/html')
 
 @app.route('/about.html')
 def about():
-    return render_template('about.html')
+    content = standard_page('about.html', 'About')
+    return Response(content, mimetype='text/html')
 
 if __name__ == '__main__':
     app.run()
