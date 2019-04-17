@@ -40,8 +40,12 @@
     <div class="card-body">
         <div class="tab-content">
             <div role="tabpanel" class="tab-pane active" id="text">
-                <label for="text"><b>Text:</b></label>
-                <textarea class="form-control" rows="5" name="input_text"></textarea>
+                <form action="/generate.html" method="POST">
+                    <label for="text"><b>Text:</b></label>
+                    <textarea class="form-control" rows="5" name="input_text"></textarea>
+                    <br>
+                    <input class="btn btn-primary" type="submit" value="Submit">
+                </form>
             </div>
             <div role="tabpanel" class="tab-pane fade" id="upload">
                 <div class="form-group">
@@ -56,8 +60,6 @@
             <div class="alert alert-info">Future submission options</div>
             </div>
         </div>
-        <br>
-            <input class="btn btn-primary" type="submit" value="Submit">
     </div>
 </div>
 <div class="center">
