@@ -1,71 +1,83 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<style>
+    .center {
+        margin: auto;
+        width: 75%;
+        padding: 10px;
+    }
+</style>
 
-    <link rel="stylesheet" type="text/css" href="static/main.css">
-
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-    <!-- Popper JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-</head>
 
 <body>
-<br>
+    <br>
+    <div class="card center">
+        <div class="card-header">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#text">Text</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#upload">File Upload</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#future">Future</a>
+                </li>
+            </ul>
+        </div>
+            <div class="card-body">
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="text">
+                        <form method="POST" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label><b>Input Text</b></label>
+                                <textarea class="form-control" rows="5" id="input_text" name="input_text" placeholder="Enter text here..." required="true"></textarea>
+                            </div>
+                            <div class="form-row">
+                                <div class="col">
+                                    <label><b>Background Color</b></label>
+                                    <select class="form-control" id="bgcolor" name="bgcolor">
+                                        <option>Black</option>
+                                        <option>White</option>
+                                        <option>Red</option>
+                                        <option>Orange</option>
+                                        <option>Yellow</option>
+                                        <option>Green</option>
+                                        <option>Blue</option>
+                                        <option>Purple</option>
+                                    </select>
+                                </div>
+                                <div class="col">
+                                    <label><b>Width</b></label>
+                                    <input class="form-control" type="text" id="width" name="width" placeholder="400">
+                                </div>
+                                <div class="col">
+                                    <label><b>Height</b></label>
+                                    <input class="form-control" type="text" id="height" name="height" placeholder="200">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <label><b>Image Overlay</b></label>
+                                <br>
+                                <input type="file" name="file" accept=".png .jpg .jpeg">
+                            </div>
+                            <input type="submit" value="Submit" class="btn btn-primary">
+                        </form>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="upload">
 
-<h2 class="center">Generator</h2>
-<div class="card center">
-    <div class="card-header">
-        <ul class="nav nav-tabs">
-            <li class="nav-item">
-                <a class="nav-link active" data-toggle="tab" href="#text">Text</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#upload">File Upload</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#future">Future</a>
-            </li>
-        </ul>
-    </div>
-    <div class="card-body">
-        <div class="tab-content">
-            <div role="tabpanel" class="tab-pane active" id="text">
-                <form action="/generate.html" method="POST">
-                    <label for="text"><b>Text:</b></label>
-                    <textarea class="form-control" rows="5" name="input_text"></textarea>
-                    <br>
-                    <input class="btn btn-primary" type="submit" value="Submit">
-                </form>
-            </div>
-            <div role="tabpanel" class="tab-pane fade" id="upload">
-                <div class="form-group">
-                    <label for="fileupload"><b>CSV Upload:</b></label>
-                    <br><br>
-                    <input type="file" class="form-control-file" id="file">
-                    <br><br>
-                    <input class="btn btn-primary" type="submit" value="Submit">
-                </div> 
-            </div>
-            <div role="tabpanel" class="tab-pane fade" id="future">
-            <div class="alert alert-info">Future submission options</div>
+                    </div>
+                </div>
             </div>
         </div>
+    <div class="center">
+            <h2>Results</h2>
+            {{results|safe}}
+    </div>    
+    <!-- Footer -->
+    <div class="card-footer">
+            <!-- Copyright -->
+            <div class="footer-copyright text-center py-3">©2019 Copyright:
+            <a href="generate.html">Generate Now!</a>
+            </div>
     </div>
-</div>
-<div class="center">
-    <h2>Results</h2>
-    <p>{{results}}</p>
-</div>
-
 </body>
-</html>
