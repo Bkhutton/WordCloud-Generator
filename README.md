@@ -1,6 +1,8 @@
 # WordCloud-Generator
 Website to allow users to create customizable word clouds.
 
+*Note* ENSURE that Visual C++ Build Tools are installed (https://visualstudio.microsoft.com/visual-cpp-build-tools/)
+
 ## Requirements
 * Python3
 * Flask
